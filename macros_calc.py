@@ -15,10 +15,10 @@ def get_bmr(lean_mass=None, gender=None, weight=None, height=None, age=None):
         args = {'gender':gender, 'weight':weight, 'height':height, 'age':age}
         if None not in args.values():
             if gender == 'male':
-                s = 5
+                s = 5.0
             else:
-                s = -161
-            bmr = 10*weight + 6.25*height + 5*age + s
+                s = -161.0
+            bmr = (10.0*weight) + (6.25*height) - (5.0*age) + s
             return bmr
         else:
             missing_args = []
