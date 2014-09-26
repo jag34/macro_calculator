@@ -87,8 +87,9 @@ def get_carb_macro(prot_macro, fat_macro, calorie_tuple):
     return (rest_carb_calorie/4, train_carb_calorie/4)
 
 if __name__ == '__main__':
-    height = feet_to_meters(feet=0, inches=65.25)
+    height = feet_to_meters(feet=5, inches=6.5)
     weight = lbs_to_kg(154)
+    print "Weight: %s Height: %s" % (weight, height)
     lbm = 20
 
     base_bmr = get_bmr(gender='male', weight=weight, height=height, age=24)
@@ -102,7 +103,7 @@ if __name__ == '__main__':
     workout_range = [i for i in fat_macro_range[1]]
 
     fat_macro_rest = raw_input("Pick fat macro (Rest): (%s - %s)\n->" % (rest_range[1], rest_range[-1]))
-    fat_macro_workout = raw_input("Pick fat macro (Workout): (%s - %s)\n->" % ', '.join([str(i) for i in workout_range]))
+    fat_macro_workout = raw_input("Pick fat macro (Workout): (%s - %s)\n->" % (workout_range[1], workout_range[-1]))
 
     fat_macro = (int(fat_macro_rest), int(fat_macro_workout))
     carb_macro = get_carb_macro(protein_macro, fat_macro, kcal_num)
